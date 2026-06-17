@@ -1,4 +1,4 @@
-AI Personal Agent built using:
+## AI Personal Agent built using:
 * LangChain
 * LangGraph
 * Groq LLM
@@ -229,6 +229,7 @@ venv/
 ## Employee Table
 
 Run:
+
 CREATE TABLE emp (
 emp_id INT PRIMARY KEY,
 emp_name VARCHAR(100)
@@ -286,10 +287,15 @@ Windows:venv\Scripts\activate
 ---
 
 Install packages:
+
 pip install langchain
+
 pip install langgraph
+
 pip install langchain-groq
+
 pip install python-dotenv
+
 pip install mysql-connector-python
 
 ---

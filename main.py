@@ -9,22 +9,15 @@ from tools import (
     send_email,
     log_interaction
 )
-
 load_dotenv()
 
-# =====================================================
 # LLM
-# =====================================================
-
 llm = ChatGroq(
     model="openai/gpt-oss-120b",
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# =====================================================
 # AGENT
-# =====================================================
-
 agent = create_react_agent(
     model=llm,
     tools=[
@@ -32,7 +25,6 @@ agent = create_react_agent(
         send_email
     ]
 )
-
 print("\n========== AI Personal Agent ==========")
 print("Type 'exit' or 'quit' to stop.\n")
 
@@ -64,10 +56,7 @@ while True:
 
     assistant_reply = response["messages"][-1].content
 
-    # ==========================================
     # EXTRACTION
-    # ==========================================
-
     input_tokens = 0
     output_tokens = 0
     reasoning_tokens = 0
@@ -88,9 +77,7 @@ while True:
 
     for msg in response["messages"]:
 
-        # -----------------------------
         # TOKEN INFO
-        # -----------------------------
 
         if (
             hasattr(msg, "usage_metadata")
@@ -119,9 +106,7 @@ while True:
                 )
             )
 
-        # -----------------------------
         # MODEL METADATA
-        # -----------------------------
 
         if (
             hasattr(msg, "response_metadata")
@@ -138,10 +123,7 @@ while True:
                 finish_reason
             )
 
-        # -----------------------------
         # TOOL CALL
-        # -----------------------------
-
         if (
             hasattr(msg, "tool_calls")
             and msg.tool_calls
@@ -167,9 +149,7 @@ while True:
                 indent=4
             )
 
-        # -----------------------------
         # TOOL RESULT
-        # -----------------------------
 
         if (
             msg.__class__.__name__
@@ -192,9 +172,7 @@ while True:
             except:
                 tool_status = "unknown"
 
-    # ==========================================
     # SAVE LOG
-    # ==========================================
 
     log_interaction(
         user_query=user_input,
@@ -222,15 +200,4 @@ while True:
     print("\nAgent:", assistant_reply)
     print()
 
-    # Uncomment for debugging:
-    # print("\n========== DEBUG ==========")
-    # print("Input Tokens     :", input_tokens)
-    # print("Output Tokens    :", output_tokens)
-    # print("Reasoning Tokens :", reasoning_tokens)
-    # print("Model Name       :", model_name)
-    # print("Tool Name        :", tool_name)
-    # print("Tool Call ID     :", tool_call_id)
-    # print("Tool Query       :", tool_query)
-    # print("Tool Status      :", tool_status)
-    # print("Finish Reason    :", finish_reason)
-    # print("===========================\n")
+ 

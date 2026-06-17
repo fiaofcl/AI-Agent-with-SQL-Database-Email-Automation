@@ -73,6 +73,7 @@ Stored information:
 # Project Structure
 
 mainllmagent/
+
 ├── main.py
 
 ├── tools.py
@@ -89,13 +90,20 @@ mainllmagent/
 Create a file named: .env
 
 Add:
-DB_HOST=localhost \n
-DB_USER=your_mysql_username\n
+DB_HOST=localhost 
+
+DB_USER=your_mysql_username
+
 DB_PASSWORD=your_mysql_password
+
 DB_NAME=your_database_name
+
 DB_LLM=your_logging_database_name
+
 EMAIL_ADDRESS=[your_email@gmail.com](mailto:your_email@gmail.com)
+
 EMAIL_PASSWORD=your_gmail_app_password
+
 GROQ_API_KEY=your_groq_api_key
 
 ---

@@ -8,10 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# =====================================================
 # DATABASE CONNECTIONS
-# =====================================================
-
 def get_db_connection():
     return mysql.connector.connect(
         host=os.getenv("DB_HOST"),
@@ -19,8 +16,6 @@ def get_db_connection():
         password=os.getenv("DB_PASSWORD"),
         database=os.getenv("DB_NAME")
     )
-
-
 def get_db_connection_log():
     return mysql.connector.connect(
         host=os.getenv("DB_HOST"),
@@ -30,10 +25,7 @@ def get_db_connection_log():
     )
 
 
-# =====================================================
 # LOGGING FUNCTION
-# =====================================================
-
 def log_interaction(
     user_query="",
     agent_response="",
@@ -80,7 +72,6 @@ def log_interaction(
         VALUES
         (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         """
-
         values = (
             user_query,
             agent_response,
@@ -97,7 +88,6 @@ def log_interaction(
             finish_reason,
             raw_response
         )
-
         cursor.execute(sql, values)
         connection.commit()
 
@@ -111,10 +101,7 @@ def log_interaction(
             connection.close()
 
 
-# =====================================================
 # SQL TOOL
-# =====================================================
-
 @tool
 def execute_sql(query: str) -> str:
     """
@@ -192,10 +179,7 @@ def execute_sql(query: str) -> str:
             connection.close()
 
 
-# =====================================================
 # EMAIL TOOL
-# =====================================================
-
 @tool
 def send_email(
     receiver: str,

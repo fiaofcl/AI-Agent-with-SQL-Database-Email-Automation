@@ -74,9 +74,13 @@ Stored information:
 
 mainllmagent/
 ├── main.py
+
 ├── tools.py
+
 ├── .env
+
 ├── requirements.txt
+
 └── README.md
 
 ---
@@ -85,8 +89,8 @@ mainllmagent/
 Create a file named: .env
 
 Add:
-DB_HOST=localhost
-DB_USER=your_mysql_username
+DB_HOST=localhost \n
+DB_USER=your_mysql_username\n
 DB_PASSWORD=your_mysql_password
 DB_NAME=your_database_name
 DB_LLM=your_logging_database_name

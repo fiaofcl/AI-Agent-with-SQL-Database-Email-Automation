@@ -282,6 +282,7 @@ Create virtual environment:python3 -m venv venv
 Activate:
 
 Mac/Linux:source venv/bin/activate
+
 Windows:venv\Scripts\activate
 
 ---
@@ -301,6 +302,7 @@ pip install mysql-connector-python
 ---
 
 Or install everything using:
+
 pip install -r requirements.txt
 
 ---
@@ -350,24 +352,38 @@ For every request the system records:
 # Example Log Entry
 
 id: 3
+
 created_at: 2026-06-17 10:42:08
+
 user_query:send an email to [abc@gmail.com](mailto:abc@gmail.com) saying hello
+
 agent_response:The email has been sent successfully.
+
 input_tokens:506
+
 output_tokens:89
+
 reasoning_tokens:17
+
 total_tokens:595
+
 model_name:openai/gpt-oss-120b
+
 tool_name:send_email
+
 tool_call_id:fc_d3476495-65b8-411f-b174-9170a74e0ced
+
 tool_query:
 {
 "receiver":"[abc@gmail.com](mailto:abc@gmail.com)",
 "subject":"Hello",
 "body":"Hello"
 }
+
 tool_status:success
+
 tool_message:Email successfully sent.
+
 finish_reason:stop
 
 ---

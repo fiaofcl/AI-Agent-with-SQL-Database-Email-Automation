@@ -415,4 +415,4 @@ finish_reason:stop
 
 # License
 
-Educational and Learning Purpose Project.
+This project is intended for learning and educational purposes.
